@@ -3,8 +3,15 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
-
+  max_profit = None
+  for idx, price in enumerate(prices):
+    for price_2 in prices[idx + 1:]:
+      if max_profit is None:
+        max_profit = price_2 - price
+        continue
+      if (price_2 - price) > max_profit:
+        max_profit = price_2 - price
+  return max_profit
 
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
