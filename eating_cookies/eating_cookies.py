@@ -8,8 +8,13 @@ import sys
 def eating_cookies(n, cache=None):
   if n <= 0:
     return 1
+  total = 0
   for i in range(1, 4):
-    
+    if i < n:
+      total += eating_cookies(n - i)
+    elif i == n:
+      total += 1
+  return total
     
 
 if __name__ == "__main__":
