@@ -2,7 +2,7 @@
 
 import sys
 
-def making_change(amount, denominations):
+def making_change(amount, denominations, cache=dict()):
   pass 
 
 

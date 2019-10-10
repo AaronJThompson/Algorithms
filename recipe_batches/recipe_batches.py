@@ -3,7 +3,18 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  lowest_num = None
+  for key in recipe:
+    if key in ingredients.keys():
+      amt = math.floor(ingredients[key] / recipe[key])
+      if lowest_num is None:
+        lowest_num = amt
+      elif lowest_num > amt:
+        lowest_num = amt
+    else:
+      return 0
+  return lowest_num
+
 
 
 if __name__ == '__main__':

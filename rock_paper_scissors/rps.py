@@ -3,7 +3,24 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  actions = ["rock", "paper", "scissors"]
+
+  def rps_recur(n):
+    nonlocal actions
+    set = list()
+    if n == 0:
+      set.append([])
+    elif n <= 1:
+      for a in actions:
+        set.append([a])
+    else:
+      for a in actions:
+        for perm in rps_recur(n - 1):
+          perm.insert(0, a)
+          set.append(perm)
+    return set
+
+  return rps_recur(n)
 
 
 if __name__ == "__main__":
